@@ -2,58 +2,154 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About - Lee Joshua Reyes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #000;
+      background-color: #0f0f0f;
       color: #fff;
-      text-align: center;
     }
+
     header {
-      padding: 40px;
-      background-color: #111;
-      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #0f0f0f;
+      border-bottom: 1px solid #222;
     }
-    h1 {
-      font-size: 2.5em;
-      font-weight: bold;
-    }
-    p {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: auto;
-      padding: 20px;
-    }
-    .nav-button {
-      background-color: #fff;
-      color: #000;
-      padding: 10px 20px;
-      margin: 20px 10px;
-      border: none;
-      border-radius: 25px;
+
+    header a {
       text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
     }
-    .nav-button:hover {
-      background-color: #ff5722;
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
       color: #fff;
+      cursor: pointer;
+    }
+
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #fff;
+    }
+
+    nav a.active::after {
+      content: '';
+      height: 2px;
+      width: 100%;
+      background-color: #fff;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 60px auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 0 20px;
+      gap: 40px;
+    }
+
+    .profile-img {
+      flex: 1 1 300px;
+    }
+
+    .profile-img img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .about-text {
+      flex: 2;
+    }
+
+    .about-text h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #e86ffb;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #ddd;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 10px 15px;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>About Me</h1>
+    <a href="portfolio.html">
+      <div class="logo">Lee Joshua Reyes</div>
+    </a>
+    <nav>
+      <a href="about.html" class="active">About</a>
+      <a href="techstack.html">Tech Stack</a>
+      <a href="certification.html">Certifications</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <p>
-    I'm a student of Bachelhahahahaor of Science in Information Technology at St. Dominic College of Asia. I'm passionate about coding, technology, and learning new skills to become a great software developer.
-  </p>
+  <div class="container">
+    <div class="profile-img">
+      <img src="lee_pic.jpg" alt="Lee Joshua Reyes">
+    </div>
+    <div class="about-text">
+      <h2>Ball. Code. Repeat.</h2>
+      <p>
+        Hey, I'm <strong>Lee Joshua Reyes</strong>, a good IT student at St. Dominic College of Asia.
+        I’m someone who manages both <strong>basketball and schoolwork.</strong>
+        Despite the challenges, I’ve been able to <strong>train and study consistently. </strong>
+        Time has been the <strong>most difficult</strong> part to manage. 
+        Even though I <strong>sometimes feel exhausted</strong>, my dreams <strong>keep me going</strong> whenever I feel like giving up.
+        <br><br>
+        I <strong>didn't plan</strong> to be an IT student. It <strong>just happened</strong> due to a bit of circumstance. 
+        Initially, I felt <strong>uncomfortable and questioned</strong> where I belonged in this field. 
+        However, over time, I grew to <strong>appreciate understanding how things work</strong>, 
+        such as system operations, troubleshooting, and coding. 
+        Something that <strong>began unexpectedly</strong> turned into something I now <strong>value deeply</strong>. 
+        I'm <strong>content with where I ended up</strong>. I've <strong>developed a genuine interest in IT</strong> and want to learn more, 
+        especially about artificial intelligence, cybersecurity, and software development. 
+        Even though <strong>it wasn't my original plan</strong>, I now look forward to what the <strong>future holds</strong>.
+      </p>
+    </div>
+  </div>
 
-  <a href="index.html" class="nav-button">Home</a>
 </body>
 </html>
