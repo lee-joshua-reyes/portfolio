@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>About - Lee Joshua Reyes</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -108,6 +108,50 @@
       nav a {
         display: inline-block;
         margin: 10px 15px;
+      }
+
+      .logo {
+        font-size: 1.2rem;
+      }
+
+      .about-text h2 {
+        font-size: 2rem;
+      }
+
+      .about-text p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      .logo {
+        font-size: 1rem;
+      }
+
+      .container {
+        margin: 40px auto;
+        padding: 0 10px;
+      }
+
+      .profile-img img {
+        max-width: 250px;
+      }
+
+      .about-text h2 {
+        font-size: 1.8rem;
+      }
+
+      .about-text p {
+        font-size: 0.95rem;
+      }
+
+      nav a {
+        font-size: 0.85rem;
+        margin: 5px 8px;
       }
     }
   </style>

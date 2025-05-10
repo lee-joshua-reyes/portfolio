@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Certifications - Lee Joshua Reyes</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -106,6 +106,65 @@
 
     .cert-link a:hover {
       color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 10px;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      li {
+        font-size: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cert-info {
+        gap: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cert-info img {
+        width: 80px;
+        height: 80px;
+      }
+
+      .cert-link a {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      .logo {
+        font-size: 1.2rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      li {
+        font-size: 0.95rem;
+        padding: 12px 15px;
+      }
+
+      .cert-info img {
+        width: 70px;
+        height: 70px;
+      }
+
+      .cert-link a {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>

@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Tech Stack - Lee Joshua Reyes</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -76,11 +77,98 @@
 
     li {
       background-color: #222;
-      padding: 12px 20px;
-      margin: 10px 0;
+      padding: 20px 20px;
+      margin: 15px 0;
       border-radius: 8px;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    li i {
+      margin-right: 15px; 
+      font-size: 3rem; 
+    }
+
+    li i.fa-4x {
+      font-size: 4rem; 
+    }
+
+    li i.fa-5x {
+      font-size: 5rem; 
+    }
+
+    .c-icon {
+      color: #007f00; 
+    }
+
+    .cpp-icon {
+      color: #00599C; 
+    }
+
+    .java-icon {
+      color: #f8981d; 
+    }
+
+    .github-icon {
+      color: #24292f; 
+    }
+
+    .html-icon {
+      color: #e34f26; 
+    }
+
+    .css-icon {
+      color: #2965f1; 
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 10px;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      li {
+        font-size: 1rem;
+      }
+
+      nav a {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      .logo {
+        font-size: 1.2rem;
+      }
+
+      .container {
+        margin: 40px auto;
+        padding: 0 10px;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      li {
+        font-size: 0.95rem;
+        padding: 10px 15px;
+      }
+
+      nav a {
+        font-size: 0.85rem;
+        margin-left: 15px;
+      }
     }
   </style>
 </head>
@@ -101,12 +189,12 @@
   <div class="container">
     <h2>My Tech Stack</h2>
     <ul>
-      <li>C Language</li>
-      <li>C++</li>
-      <li>Java</li>
-      <li>Git and GitHub</li>
-      <li>HTML Basics</li>
-      <li>CSS</li>
+      <li><i class="fab fa-cuttlefish fa-5x c-icon"></i> C Language</li>
+      <li><i class="fab fa-cuttlefish fa-5x cpp-icon"></i> C++</li>
+      <li><i class="fab fa-java fa-5x java-icon"></i> Java</li>
+      <li><i class="fab fa-github fa-5x github-icon"></i> Git and GitHub</li>
+      <li><i class="fab fa-html5 fa-5x html-icon"></i> HTML Basics</li>
+      <li><i class="fab fa-css3-alt fa-5x css-icon"></i> CSS</li>
     </ul>
   </div>
 

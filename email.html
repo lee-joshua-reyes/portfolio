@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Email Me</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
@@ -17,6 +17,7 @@
       min-height: 100vh;
       padding: 20px;
       position: relative;
+      margin: 0;
     }
 
     .back-logo {
@@ -40,6 +41,7 @@
       border-radius: 10px;
       max-width: 400px;
       width: 100%;
+      box-sizing: border-box;
     }
 
     input, textarea {
@@ -71,6 +73,55 @@
     h2 {
       margin-bottom: 20px;
       color: #e86ffb;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .back-logo {
+        left: 20px;
+        font-size: 1rem;
+      }
+
+      form {
+        padding: 25px;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      input, textarea {
+        font-size: 0.9rem;
+        padding: 8px;
+      }
+
+      button {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .back-logo {
+        left: 10px;
+        font-size: 0.9rem;
+      }
+
+      form {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      input, textarea {
+        font-size: 0.85rem;
+        padding: 8px;
+      }
+
+      button {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
