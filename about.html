@@ -9,8 +9,20 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #0f0f0f;
       color: #fff;
+      overflow: auto;
+      height: 100vh;
+      background-color: #0f0f0f;
+      position: relative;
+    }
+
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
 
     header {
@@ -31,6 +43,10 @@
       font-weight: 700;
       color: #fff;
       cursor: pointer;
+    }
+
+    nav {
+      display: flex;
     }
 
     nav a {
@@ -57,6 +73,80 @@
       left: 0;
     }
 
+    /* Hamburger styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 22px;
+      cursor: pointer;
+      z-index: 1003;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 100%;
+      background: #aaa;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger:hover span {
+      background: #fff;
+      transform: scaleX(1.2);
+    }
+
+    .mobile-nav {
+      display: none;
+    }
+
+    .mobile-nav.active {
+      display: flex;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 70%;
+      height: 100%;
+      background-color: #0f0f0f;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      transition: right 0.3s ease;
+      z-index: 1001;
+    }
+
+    .mobile-nav a {
+      font-size: 1.3rem;
+      color: #aaa;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .mobile-nav a:hover {
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    /* Add underline for active link in mobile menu */
+    .mobile-nav a.active {
+      color: #fff;
+    }
+
+    .mobile-nav a.active::after {
+      content: '';
+      height: 2px;
+      width: 100%;
+      background-color: #fff;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+
+    /* Main container */
     .container {
       max-width: 1100px;
       margin: 60px auto;
@@ -95,23 +185,19 @@
       color: #ddd;
     }
 
+    /* Responsive Design */
     @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
       .container {
         flex-direction: column;
         text-align: center;
-      }
-
-      nav {
-        margin-top: 10px;
-      }
-
-      nav a {
-        display: inline-block;
-        margin: 10px 15px;
-      }
-
-      .logo {
-        font-size: 1.2rem;
       }
 
       .about-text h2 {
@@ -148,16 +234,15 @@
       .about-text p {
         font-size: 0.95rem;
       }
-
-      nav a {
-        font-size: 0.85rem;
-        margin: 5px 8px;
-      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Particles.js background container -->
+  <div id="particles-js"></div>
+
+  <!-- Header -->
   <header>
     <a href="index.html">
       <div class="logo">Lee Joshua Reyes</div>
@@ -168,8 +253,21 @@
       <a href="certification.html">Certifications</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </header>
 
+  <div class="mobile-nav" id="mobileNav">
+    <a href="about.html" class="active">About</a>
+    <a href="techstack.html">Tech Stack</a>
+    <a href="certification.html">Certifications</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- Content -->
   <div class="container">
     <div class="profile-img">
       <img src="lee_pic.jpg" alt="Lee Joshua Reyes">
@@ -179,21 +277,89 @@
       <p>
         Hey, I'm <strong>Lee Joshua Reyes</strong>, a good IT student at St. Dominic College of Asia.
         I’m someone who manages both <strong>basketball and schoolwork.</strong>
-        Despite the challenges, I’ve been able to <strong>train and study consistently. </strong>
-        Time has been the <strong>most difficult</strong> part to manage. 
+        Despite the challenges, I’ve been able to <strong>train and study consistently.</strong>
+        Time has been the <strong>most difficult</strong> part to manage.
         Even though I <strong>sometimes feel exhausted</strong>, my dreams <strong>keep me going</strong> whenever I feel like giving up.
         <br><br>
-        I <strong>didn't plan</strong> to be an IT student. It <strong>just happened</strong> due to a bit of circumstance. 
-        Initially, I felt <strong>uncomfortable and questioned</strong> where I belonged in this field. 
-        However, over time, I grew to <strong>appreciate understanding how things work</strong>, 
-        such as system operations, troubleshooting, and coding. 
-        Something that <strong>began unexpectedly</strong> turned into something I now <strong>value deeply</strong>. 
-        I'm <strong>content with where I ended up</strong>. I've <strong>developed a genuine interest in IT</strong> and want to learn more, 
-        especially about artificial intelligence, cybersecurity, and software development. 
+        I <strong>didn't plan</strong> to be an IT student. It <strong>just happened</strong> due to a bit of circumstance.
+        Initially, I felt <strong>uncomfortable and questioned</strong> where I belonged in this field.
+        However, over time, I grew to <strong>appreciate understanding how things work</strong>,
+        such as system operations, troubleshooting, and coding.
+        Something that <strong>began unexpectedly</strong> turned into something I now <strong>value deeply</strong>.
+        I'm <strong>content with where I ended up</strong>. I've <strong>developed a genuine interest in IT</strong> and want to learn more,
+        especially about artificial intelligence, cybersecurity, and software development.
         Even though <strong>it wasn't my original plan</strong>, I now look forward to what the <strong>future holds</strong>.
       </p>
     </div>
   </div>
 
+  <!-- Particles.js script inclusion -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    function toggleMenu() {
+      document.getElementById("mobileNav").classList.toggle("active");
+      const mobileLinks = document.querySelectorAll('.mobile-nav a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileLinks.forEach(l => l.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+    }
+
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 50,
+          "density": { "enable": true, "value_area": 800}
+    },
+        "color": { "value": "#ffffff" },
+        "shape": {
+        "type": "circle",
+        "stroke": { "width": 0, "color": "#000000" },
+        "polygon": { "nb_sides": 5 }
+    },
+        "opacity": {
+        "value": 0.5,
+        "random": false,
+        "anim": { "enable": false }
+    },
+        "size": {
+        "value": 3,
+        "random": true,
+        "anim": { "enable": false }
+    },
+        "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.4,
+        "width": 1
+    },
+        "move": {
+        "enable": true,
+        "speed": 4,
+        "direction": "none",
+        "random": false,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false
+    }
+    },
+        "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+        "onhover": { "enable": true, "mode": "repulse" },
+        "onclick": { "enable": true, "mode": "push" },
+        "resize": true
+    },
+        "modes": {
+        "repulse": { "distance": 100, "duration": 0.4 },
+        "push": { "particles_nb": 4 }
+    }
+    },
+        "retina_detect": true
+    });
+  </script>
 </body>
 </html>

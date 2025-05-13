@@ -3,15 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Email Me</title>
   <title>Contact - Lee Joshua Reyes</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #0f0f0f;
       color: #fff;
+      height: 100vh;
+      overflow: auto;
+      background-color: #0f0f0f;
+      position: relative;
+    }
+
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
 
     header {
@@ -76,20 +87,122 @@
       line-height: 1.6;
     }
 
-    .email {
-      margin-top: 20px;
+    .email a {
       font-size: 1.2rem;
       font-weight: bold;
       color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .email a:hover {
+      color: #e86ffb;
+      text-decoration: underline;
+    }
+
+    /* Hamburger Styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 22px;
+      cursor: pointer;
+      z-index: 1003;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 100%;
+      background: #aaa;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger:hover span {
+      background: #fff;
+      transform: scaleX(1.2);
+    }
+
+    .mobile-nav {
+      display: none;
+    }
+
+    .mobile-nav.active {
+      display: flex;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 70%;
+      height: 100%;
+      background-color: #0f0f0f;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      transition: right 0.3s ease;
+      z-index: 1001;
+    }
+
+    .mobile-nav a {
+      font-size: 1.3rem;
+      color: #aaa;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .mobile-nav a:hover {
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .container {
+        padding: 0 10px;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      .logo {
+        font-size: 1.2rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
 <body>
 
+  <div id="particles-js"></div>
+
   <header>
     <a href="index.html">
       <div class="logo">Lee Joshua Reyes</div>
     </a>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     <nav>
       <a href="about.html">About</a>
       <a href="techstack.html">Tech Stack</a>
@@ -98,11 +211,82 @@
     </nav>
   </header>
 
+  <!-- Mobile navigation -->
+  <nav id="mobile-nav" class="mobile-nav">
+    <a href="about.html">About</a>
+    <a href="techstack.html">Tech Stack</a>
+    <a href="certification.html">Certifications</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+
   <div class="container">
     <h2>Contact Me</h2>
     <p>If you'd like to connect, collaborate, or just say hello, feel free to reach me out!</p>
-    <p class="email">Email: reyesleejoshua29@gmail.com</p>
+    <p class="email">
+      <a href="email.html">Email: reyesleejoshua29@gmail.com</a>
+    </p>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 30, 
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#ffffff"
+          },
+        },
+        "opacity": {
+          "value": 0.3, 
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 2,
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 10,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "move": {
+          "enable": true,
+          "speed": 1,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+        }
+      },
+      "retina_detect": true
+    });
+
+    // Toggle mobile navigation
+    function toggleNav() {
+      const mobileNav = document.getElementById('mobile-nav');
+      mobileNav.classList.toggle('active');
+    }
+  </script>
 
 </body>
 </html>

@@ -20,6 +20,15 @@
       margin: 0;
     }
 
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
     .back-logo {
       position: absolute;
       top: 20px;
@@ -127,6 +136,8 @@
 </head>
 <body>
 
+  <div id="particles-js"></div>
+
   <a href="index.html" class="back-logo">Lee Joshua Reyes</a>
 
   <form action="https://formspree.io/f/mblokdwk" method="POST">
@@ -136,6 +147,61 @@
     <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
     <button type="submit">Submit</button>
   </form>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 30, 
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#ffffff"
+          },
+        },
+        "opacity": {
+          "value": 0.3, 
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 2,
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 10,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "move": {
+          "enable": true,
+          "speed": 1,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
 
 </body>
 </html>
