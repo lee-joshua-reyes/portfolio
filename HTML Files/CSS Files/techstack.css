@@ -1,0 +1,307 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0f0f0f;
+  color: #fff;
+  position: relative;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+#particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #0f0f0f;
+  border-bottom: 1px solid #222;
+  position: relative;
+}
+
+header a {
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+nav a {
+  color: #aaa;
+  text-decoration: none;
+  margin-left: 30px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+
+nav a:hover,
+nav a.active {
+  color: #fff;
+}
+
+nav a.active::after {
+  content: '';
+  height: 2px;
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1003;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 100%;
+  background: #aaa;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger:hover span {
+  background: #fff;
+  transform: scaleX(1.2);
+}
+
+.mobile-nav {
+  display: none;
+}
+
+.mobile-nav.active {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 70%;
+  height: 100%;
+  background-color: #0f0f0f;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  transition: right 0.3s ease;
+  z-index: 1001;
+}
+
+.mobile-nav a {
+  font-size: 1.3rem;
+  color: #aaa;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.mobile-nav a:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: #e86ffb;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 60px;
+  row-gap: 10px;
+  margin-top: 20px;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+}
+
+li {
+  background-color: #222;
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 150px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 100%;
+  height: 40%;
+}
+
+li:hover {
+  transform: translateY(-10px);
+  background-color: #333;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+li i {
+  margin-right: 10px;
+  font-size: 6rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: inline-block;
+}
+
+li:hover i {
+  transform: scale(1.3);
+  color: #fff;
+}
+
+li .text {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+li:hover .text {
+  color: #e86ffb;
+  transform: translateX(10px);
+}
+
+.c-icon { color: #007f00; }
+.cpp-icon { color: #00599C; }
+.java-icon { color: #f8981d; }
+.github-icon { color: #fff; }
+.html-icon { color: #e34f26; }
+.css-icon { color: #2965f1; }
+.git-icon { color: #f05032; }
+.javascript-icon { color: #f0db4f; }
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  ul {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text h2 {
+    font-size: 2rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  li {
+    height: auto;
+    font-size: 1rem;
+    padding: 15px;
+  }
+
+  li i {
+    font-size: 5rem;
+  }
+
+  li .text {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .container {
+    margin: 40px auto;
+    padding: 0 10px;
+  }
+
+  .profile-img img {
+    max-width: 250px;
+  }
+
+  .about-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
+  }
+
+  ul {
+    grid-template-columns: 1fr;
+  }
+
+  li {
+    height: auto;
+    font-size: 1rem;
+  }
+
+  li i {
+    font-size: 4rem;
+  }
+
+  li .text {
+    font-size: 1.1rem;
+  }
+}

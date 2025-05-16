@@ -1,0 +1,126 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0f0f0f;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+  margin: 0;
+}
+
+#particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.back-logo {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.back-logo:hover {
+  color: #e86ffb;
+}
+
+form {
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+button {
+  background-color: #e86ffb;
+  color: #0f0f0f;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #e86ffb;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .back-logo {
+    left: 20px;
+    font-size: 1rem;
+  }
+
+  form {
+    padding: 25px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  input, textarea {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .back-logo {
+    left: 10px;
+    font-size: 0.9rem;
+  }
+
+  form {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  input, textarea {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  button {
+    font-size: 0.9rem;
+  }
+}
