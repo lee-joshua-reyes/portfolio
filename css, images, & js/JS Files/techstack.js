@@ -1,10 +1,19 @@
 
-/* =====================================
-   MOBILE NAVIGATION
-===================================== */
+// =====================================
+// MOBILE NAVIGATION
+// =====================================
 
 const hamburger = document.getElementById("hamburger");
 const mobileNav = document.getElementById("mobile-nav");
+
+function closeMobileNav() {
+    if (!hamburger || !mobileNav) return;
+
+    mobileNav.classList.remove("active");
+    hamburger.classList.remove("is-open");
+    hamburger.setAttribute("aria-expanded", "false");
+    hamburger.setAttribute("aria-label", "Open navigation");
+}
 
 if (hamburger && mobileNav) {
 
@@ -26,11 +35,7 @@ if (hamburger && mobileNav) {
     mobileNav.querySelectorAll("a").forEach(link => {
 
         link.addEventListener("click", () => {
-
-            mobileNav.classList.remove("active");
-            hamburger.classList.remove("is-open");
-            hamburger.setAttribute("aria-expanded", "false");
-
+            closeMobileNav();
         });
 
     });
@@ -38,9 +43,9 @@ if (hamburger && mobileNav) {
 }
 
 
-/* =====================================
-   PARTICLES BACKGROUND
-===================================== */
+// =====================================
+// PARTICLES BACKGROUND
+// =====================================
 
 if (
     typeof particlesJS !== "undefined" &&
@@ -139,9 +144,9 @@ if (
 }
 
 
-/* =====================================
-   TECHNOLOGY DATA
-===================================== */
+// =====================================
+// TECHNOLOGY DATA
+// =====================================
 
 const techStacks = [
 
@@ -338,9 +343,9 @@ const techStacks = [
 ];
 
 
-/* =====================================
-   ELEMENT REFERENCES
-===================================== */
+// =====================================
+// ELEMENT REFERENCES
+// =====================================
 
 const techContainer = document.getElementById("techstack-container");
 
@@ -357,9 +362,9 @@ const detailCategory = document.getElementById("detailCategory");
 const detailDescription = document.getElementById("detailDescription");
 
 
-/* =====================================
-   OPEN SKILL DETAIL
-===================================== */
+// =====================================
+// OPEN SKILL DETAIL
+// =====================================
 
 function openSkillDetail(skill, category) {
 
@@ -392,9 +397,9 @@ function openSkillDetail(skill, category) {
 }
 
 
-/* =====================================
-   CLOSE SKILL DETAIL
-===================================== */
+// =====================================
+// CLOSE SKILL DETAIL
+// =====================================
 
 function closeSkillDetail() {
 
@@ -428,9 +433,9 @@ document.addEventListener("keydown", event => {
 });
 
 
-/* =====================================
-   CREATE TECHNOLOGY BUTTON
-===================================== */
+// =====================================
+// CREATE TECHNOLOGY BUTTON
+// =====================================
 
 function createSkillButton(skill, category) {
 
@@ -470,9 +475,9 @@ function createSkillButton(skill, category) {
 }
 
 
-/* =====================================
-   BUILD TECHNOLOGY ROWS
-===================================== */
+// =====================================
+// BUILD TECHNOLOGY ROWS
+// =====================================
 
 function buildTechnologyRows() {
 
@@ -482,14 +487,14 @@ function buildTechnologyRows() {
 
     techStacks.forEach((group, index) => {
 
-        /* CATEGORY SECTION */
+        // CATEGORY SECTION
 
         const categorySection = document.createElement("section");
 
         categorySection.className = "stack-category";
 
 
-        /* CATEGORY HEADING */
+        // CATEGORY HEADING
 
         const heading = document.createElement("div");
 
@@ -512,7 +517,7 @@ function buildTechnologyRows() {
         heading.append(number, title, line);
 
 
-        /* SLIDING TRACK */
+        // SLIDING TRACK
 
         const track = document.createElement("div");
 
@@ -532,10 +537,7 @@ function buildTechnologyRows() {
         trackInner.className = "skill-track-inner";
 
 
-        /*
-          FIRST SET:
-          Contains the actual clickable skill cards.
-        */
+        // FIRST SET: CLICKABLE SKILL CARDS
 
         const firstSet = document.createElement("div");
 
@@ -550,11 +552,7 @@ function buildTechnologyRows() {
         });
 
 
-        /*
-          SECOND SET:
-          Visual copy for the continuous animation.
-          It is hidden from keyboard and screen readers.
-        */
+        // SECOND SET: VISUAL COPY FOR CONTINUOUS ANIMATION
 
         const secondSet = firstSet.cloneNode(true);
 
@@ -569,10 +567,7 @@ function buildTechnologyRows() {
         });
 
 
-        /*
-          Append both equal sets.
-          CSS moves the complete track by 50%.
-        */
+        // APPEND BOTH EQUAL SETS
 
         trackInner.append(firstSet, secondSet);
 
@@ -587,8 +582,78 @@ function buildTechnologyRows() {
 }
 
 
-/* =====================================
-   INITIALIZE
-===================================== */
+// =====================================
+// PAGE NAVIGATION TRANSITIONS
+// =====================================
+
+function setupPageTransitions() {
+
+    const navigationLinks = document.querySelectorAll(
+        'a[href$=".html"]'
+    );
+
+    navigationLinks.forEach(link => {
+
+        link.addEventListener("click", event => {
+
+            // Allow normal browser behavior for modified clicks.
+            if (
+                event.ctrlKey ||
+                event.metaKey ||
+                event.shiftKey ||
+                event.altKey ||
+                event.button !== 0
+            ) {
+                return;
+            }
+
+            // Ignore links that open in a new tab or window.
+            if (link.target && link.target !== "_self") {
+                return;
+            }
+
+            const destination = new URL(link.href, window.location.href);
+
+            // Only animate links pointing to the same website.
+            if (destination.origin !== window.location.origin) {
+                return;
+            }
+
+            // Do not animate if the link points to the current page.
+            if (
+                destination.pathname === window.location.pathname &&
+                destination.search === window.location.search
+            ) {
+                return;
+            }
+
+            // Do not interfere with skill detail controls.
+            if (link.closest("#skillDetail")) {
+                return;
+            }
+
+            event.preventDefault();
+
+            closeMobileNav();
+
+            document.body.classList.add("page-exit");
+
+            // Navigate after the exit animation.
+            window.setTimeout(() => {
+                window.location.href = destination.href;
+            }, 380);
+
+        });
+
+    });
+
+}
+
+
+// =====================================
+// INITIALIZE
+// =====================================
 
 buildTechnologyRows();
+
+setupPageTransitions();

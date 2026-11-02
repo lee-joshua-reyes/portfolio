@@ -1,181 +1,360 @@
+/* =====================================
+   BASE
+===================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      color: #fff;
-      height: 100vh;
-      overflow: auto;
-      background-color: #0f0f0f;
-      position: relative;
-    }
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #0f0f0f;
+  position: relative;
 
-    #particles-js {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
+  animation: pageOpen 0.7s ease forwards;
+}
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background-color: #0f0f0f;
-      border-bottom: 1px solid #222;
-    }
+/* PAGE OPENING ANIMATION */
 
-    header a {
-      text-decoration: none;
-    }
+@keyframes pageOpen {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #fff;
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    nav a {
-      color: #aaa;
-      text-decoration: none;
-      margin-left: 30px;
-      font-weight: 500;
-      transition: color 0.3s;
-      position: relative;
-    }
+/* PAGE CLOSING ANIMATION */
 
-    nav a:hover,
-    nav a.active {
-      color: #fff;
-    }
+body.page-exit {
+  animation: pageClose 0.4s ease forwards;
+  pointer-events: none;
+}
 
-    nav a.active::after {
-      content: '';
-      height: 2px;
-      width: 100%;
-      background-color: #fff;
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-    }
+@keyframes pageClose {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-    .container {
-      max-width: 800px;
-      margin: 60px auto;
-      padding: 0 20px;
-      text-align: center;
-    }
+  to {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+}
 
-    h2 {
-      font-size: 2.5rem;
-      color: #e86ffb;
-      margin-bottom: 20px;
-    }
 
-    p {
-      font-size: 1.1rem;
-      color: #ddd;
-      line-height: 1.6;
-    }
+/* =====================================
+   PARTICLES
+===================================== */
 
-    .email a {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #fff;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
 
-    .email a:hover {
-      color: #e86ffb;
-      text-decoration: underline;
-    }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 28px;
-      height: 22px;
-      cursor: pointer;
-      z-index: 1003;
-    }
+/* =====================================
+   HEADER
+===================================== */
 
-    .hamburger span {
-      height: 3px;
-      width: 100%;
-      background: #aaa;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #0f0f0f;
+  border-bottom: 1px solid #222;
+  position: relative;
+  z-index: 1002;
+}
 
-    .hamburger:hover span {
-      background: #fff;
-      transform: scaleX(1.2);
-    }
+header a {
+  text-decoration: none;
+}
 
-    .mobile-nav {
-      display: none;
-    }
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
 
-    .mobile-nav.active {
-      display: flex;
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 70%;
-      height: 100%;
-      background-color: #0f0f0f;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      transition: right 0.3s ease;
-      z-index: 1001;
-    }
 
-    .mobile-nav a {
-      font-size: 1.3rem;
-      color: #aaa;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
+/* =====================================
+   DESKTOP NAVIGATION HOVER
+===================================== */
 
-    .mobile-nav a:hover {
-      color: #fff;
-      transform: scale(1.1);
-    }
+.desktop-nav {
+  display: flex;
+  align-items: center;
+}
 
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-      }
+.desktop-nav a {
+  color: #aaa;
+  text-decoration: none;
+  margin-left: 30px;
+  font-weight: 500;
+  position: relative;
 
-      .hamburger {
-        display: flex;
-      }
+  transition: color 0.3s ease;
+}
 
-      .container {
-        padding: 0 10px;
-      }
+/* Purple underline animation */
 
-      h2 {
-        font-size: 2rem;
-      }
-    }
+.desktop-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
 
-    @media (max-width: 480px) {
-      header {
-        padding: 15px 20px;
-      }
+  width: 0;
+  height: 2px;
 
-      .logo {
-        font-size: 1.2rem;
-      }
+  background-color: #e86ffb;
+  box-shadow: 0 0 10px rgba(232, 111, 251, 0.55);
 
-      h2 {
-        font-size: 1.8rem;
-      }
-    }
+  transition: width 0.3s ease;
+}
+
+/* Hover effect */
+
+.desktop-nav a:hover {
+  color: #fff;
+}
+
+.desktop-nav a:hover::after {
+  width: 100%;
+}
+
+/* Active page */
+
+.desktop-nav a.active {
+  color: #fff;
+}
+
+.desktop-nav a.active::after {
+  width: 100%;
+}
+
+
+/* =====================================
+   MAIN CONTENT
+===================================== */
+
+.container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: #e86ffb;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+.email a {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.email a:hover {
+  color: #e86ffb;
+  text-decoration: underline;
+}
+
+
+/* =====================================
+   HAMBURGER
+===================================== */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1004;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 100%;
+  background: #aaa;
+  border-radius: 2px;
+
+  transition: all 0.3s ease;
+}
+
+.hamburger:hover span {
+  background: #e86ffb;
+}
+
+.hamburger.is-open span:first-child {
+  transform: translateY(9.5px) rotate(45deg);
+}
+
+.hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.is-open span:last-child {
+  transform: translateY(-9.5px) rotate(-45deg);
+}
+
+
+/* =====================================
+   MOBILE NAVIGATION
+===================================== */
+
+.mobile-nav {
+  display: none;
+}
+
+.mobile-nav.active {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  width: 70%;
+  height: 100%;
+
+  background-color: #0f0f0f;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  border-left: 1px solid rgba(232, 111, 251, 0.2);
+
+  box-shadow: -15px 0 45px rgba(0, 0, 0, 0.4);
+
+  z-index: 1003;
+
+  animation: mobileNavOpen 0.35s ease forwards;
+}
+
+@keyframes mobileNavOpen {
+  from {
+    opacity: 0;
+    transform: translateX(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.mobile-nav a {
+  position: relative;
+
+  font-size: 1.3rem;
+  color: #aaa;
+  text-decoration: none;
+  font-weight: 600;
+
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-nav a:hover {
+  color: #e86ffb;
+  transform: translateX(5px);
+}
+
+.mobile-nav a.active {
+  color: #e86ffb;
+}
+
+
+/* =====================================
+   TABLET AND MOBILE
+===================================== */
+
+@media (max-width: 768px) {
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+}
+
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 480px) {
+
+  header {
+    padding: 15px 20px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+}
+
+
+/* =====================================
+   ACCESSIBILITY
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  body,
+  body.page-exit {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+
+}

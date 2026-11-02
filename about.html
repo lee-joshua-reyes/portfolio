@@ -2,71 +2,112 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>About — LR</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>About Me — LR</title>
+
   <link rel="stylesheet" href="css, images, & js/CSS Files/about.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
+
 <body>
 
   <div id="particles-js"></div>
 
-  <header>
-    <a href="index.html">
-      <div class="logo">LR.</div>
-    </a>
-    <nav>
+  <header class="navbar">
+    <a href="index.html" class="logo">LR<span>.</span></a>
+
+    <nav class="nav-links" id="navLinks">
       <a href="about.html" class="active">About</a>
       <a href="techstack.html">Tech Stack</a>
       <a href="certification.html">Certifications</a>
       <a href="projects.html">Projects</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <div class="hamburger" onclick="toggleMenu()">
+
+    <div class="menu-toggle" id="menuToggle">
       <span></span>
       <span></span>
       <span></span>
     </div>
   </header>
 
-  <div class="mobile-nav" id="mobileNav">
-    <a href="about.html" class="active">About</a>
-    <a href="techstack.html">Tech Stack</a>
-    <a href="certification.html">Certifications</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-    <a href="other.html">Other</a>
-  </div>
+  <main class="about-container">
 
-  <div class="container">
-    <div class="profile-img">
-      <img src="css, images, & js/images/picfolio.png" alt="Lee Joshua Reyes">
-    </div>
-    <div class="about-text">
-      <h2>About Me, Myself, and I</h2>
-      <p>
-        Hey, I'm Lee Joshua Reyes, an IT student at St. Dominic College of Asia 
-        and an aspiring IT professional who enjoys solving problems and discovering how technology works.
-        <br><br>
-        My journey in Information Technology wasn't something I originally planned, but as I continued learning, 
-        I gradually developed a genuine interest in the field. 
-        I became curious about how systems operate, how problems can be solved through technology, 
-        and how lines of code can turn ideas into something useful. 
-        What started as an unexpected path has become an opportunity for me to discover my strengths and explore what I'm capable of.
-        <br><br>
-        As I continue my journey, I'm eager to learn more about different areas of IT, 
-        including web development, software development, artificial intelligence, and cybersecurity. 
-        I enjoy challenging myself, learning new skills, and applying what I learn through projects and hands-on experiences.
-        <br><br>
-        My goal is to become a skilled IT professional who can develop practical solutions, create useful systems, 
-        and make a positive impact through technology. 
-        I know there's still a lot for me to learn, but I'm ready to keep improving, embrace new challenges, 
-        and turn my ideas into reality—one line of code at a time.
-      </p>
-    </div>
-  </div>
+    <section class="about-heading">
+      <h1>About <span>Me.</span></h1>
+      <div class="heading-line"></div>
+    </section>
 
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <section class="about-content">
+
+      <div class="about-image">
+        <img
+          src="css, images, & js/images/picfolio.png"
+          alt="Lee Joshua Reyes"
+        />
+      </div>
+
+      <div class="about-information">
+
+        <div class="about-intro">
+          <h2>Hello, I'm <span>Lee Joshua Reyes.</span></h2>
+
+          <p>
+            I'm an Information Technology student at St. Dominic College of Asia
+            and an aspiring IT professional who enjoys exploring technology,
+            solving problems, and discovering how different systems work.
+          </p>
+        </div>
+
+        <div class="about-details">
+
+          <article class="detail-item">
+            <h3>Who I Am</h3>
+            <p>
+              I consider myself someone who is always willing to learn and
+              improve. My journey in Information Technology has allowed me
+              to explore different areas of technology and develop my
+              understanding of how digital solutions are created.
+            </p>
+          </article>
+
+          <article class="detail-item">
+            <h3>My Interests</h3>
+            <p>
+              I'm interested in exploring different fields of IT, including
+              web development, software development, database management,
+              and other technologies that help create practical solutions.
+            </p>
+          </article>
+
+          <article class="detail-item">
+            <h3>My Goal</h3>
+            <p>
+              My goal is to become a skilled IT professional, continuously
+              expand my knowledge, and build useful systems that can make
+              everyday tasks easier and more efficient.
+            </p>
+          </article>
+
+        </div>
+
+        <div class="about-footer">
+          <span>Always learning. Always improving.</span>
+          <div class="footer-line"></div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
   <script src="css, images, & js/JS Files/about.js"></script>
+
 </body>
 </html>

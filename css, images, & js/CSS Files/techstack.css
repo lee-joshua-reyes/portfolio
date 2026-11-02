@@ -34,6 +34,48 @@ body.skill-open {
     overflow: hidden;
 }
 
+/* =====================================
+   PAGE TRANSITIONS
+===================================== */
+
+header,
+.container {
+    animation: page-enter 0.7s ease both;
+}
+
+.container {
+    animation-delay: 0.08s;
+}
+
+@keyframes page-enter {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body.page-exit header,
+body.page-exit .container {
+    animation: page-exit 0.38s ease forwards;
+    pointer-events: none;
+}
+
+@keyframes page-exit {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-16px);
+    }
+}
 
 /* =====================================
    PARTICLES BACKGROUND
@@ -46,8 +88,12 @@ body.skill-open {
     height: 100%;
     z-index: 0;
     pointer-events: none;
+    transition: opacity 0.35s ease;
 }
 
+body.page-exit #particles-js {
+    opacity: 0;
+}
 
 /* =====================================
    HEADER
@@ -70,11 +116,21 @@ header {
     font-size: 1.8rem;
     font-weight: 700;
     letter-spacing: -2px;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.logo:hover {
+    color: var(--purple);
+    transform: translateY(-2px);
 }
 
 .logo span {
     color: var(--purple);
 }
+
+/* =====================================
+   DESKTOP NAVIGATION
+===================================== */
 
 .desktop-nav {
     display: flex;
@@ -84,6 +140,7 @@ header {
 
 .desktop-nav a {
     position: relative;
+    padding: 5px 0;
     color: #aaa;
     text-decoration: none;
     font-size: 0.95rem;
@@ -91,25 +148,33 @@ header {
     transition: color 0.25s ease;
 }
 
+.desktop-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background: var(--purple);
+    box-shadow: 0 0 10px rgba(232, 111, 251, 0.45);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
 .desktop-nav a:hover,
 .desktop-nav a.active {
     color: #fff;
 }
 
+.desktop-nav a:hover::after,
 .desktop-nav a.active::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 100%;
-    height: 2px;
-    background: var(--purple);
-    box-shadow: 0 0 10px rgba(232, 111, 251, 0.55);
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
-
 /* =====================================
-   HAMBURGER AND MOBILE NAVIGATION
+   HAMBURGER
 ===================================== */
 
 .hamburger {
@@ -131,7 +196,12 @@ header {
     height: 3px;
     border-radius: 4px;
     background: #ddd;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease,
+        background 0.3s ease;
+}
+
+.hamburger:hover span {
+    background: var(--purple);
 }
 
 .hamburger.is-open span:first-child {
@@ -149,7 +219,6 @@ header {
 .mobile-nav {
     display: none;
 }
-
 
 /* =====================================
    MAIN LAYOUT
@@ -178,7 +247,6 @@ body.skill-open .techstack-section {
     filter: blur(5px);
     pointer-events: none;
 }
-
 
 /* =====================================
    TECH STACK HEADING
@@ -240,7 +308,6 @@ body.skill-open .techstack-section {
     letter-spacing: 0.2px;
 }
 
-
 /* =====================================
    CATEGORY HEADINGS
 ===================================== */
@@ -282,7 +349,6 @@ body.skill-open .techstack-section {
     );
 }
 
-
 /* =====================================
    CONTINUOUS SLIDING ROWS
 ===================================== */
@@ -315,10 +381,8 @@ body.skill-open .techstack-section {
     flex-wrap: nowrap;
     width: max-content;
     gap: 0;
-
     animation: skills-marquee-left 28s linear infinite;
     animation-play-state: running;
-
     will-change: transform;
 }
 
@@ -330,12 +394,6 @@ body.skill-open .techstack-section {
 .skill-track:hover .skill-track-inner {
     animation-play-state: paused;
 }
-
-
-/*
-   The two skill sets have equal widths.
-   Moving by 50% moves exactly one complete set.
-*/
 
 @keyframes skills-marquee-left {
     from {
@@ -357,7 +415,6 @@ body.skill-open .techstack-section {
     }
 }
 
-
 /* =====================================
    SKILL SETS
 ===================================== */
@@ -368,13 +425,10 @@ body.skill-open .techstack-section {
     align-items: center;
     justify-content: space-around;
     gap: 20px;
-
     width: 100vw;
     min-width: 100vw;
-
     padding: 12px 35px;
 }
-
 
 /* =====================================
    TECHNOLOGY CARDS
@@ -386,11 +440,9 @@ body.skill-open .techstack-section {
     align-items: center;
     justify-content: center;
     gap: 16px;
-
     min-width: 230px;
     min-height: 100px;
     padding: 22px 30px;
-
     border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: 16px;
 
@@ -447,7 +499,6 @@ body.skill-open .techstack-section {
     font-weight: 500;
     letter-spacing: 0.1px;
 }
-
 
 /* =====================================
    BRAND COLORS
@@ -530,7 +581,6 @@ body.skill-open .techstack-section {
     color: #ff6c37;
 }
 
-
 /* =====================================
    INSTRUCTION
 ===================================== */
@@ -541,7 +591,6 @@ body.skill-open .techstack-section {
     align-items: center;
     gap: 10px;
     margin-top: 48px;
-
     color: #99919e;
     font-size: 0.82rem;
     font-weight: 400;
@@ -552,7 +601,6 @@ body.skill-open .techstack-section {
     color: var(--purple);
 }
 
-
 /* =====================================
    SKILL DETAIL VIEW
 ===================================== */
@@ -561,11 +609,9 @@ body.skill-open .techstack-section {
     position: fixed;
     inset: 0;
     z-index: 1000;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: 100px 25px 35px;
 
     background:
@@ -601,18 +647,14 @@ body.skill-open .techstack-section {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-
     margin-bottom: 25px;
     padding: 9px 0;
-
     border: 0;
     background: transparent;
-
     color: #aaa;
     font-family: "Poppins", sans-serif;
     font-size: 0.9rem;
     cursor: pointer;
-
     transition: color 0.25s ease, transform 0.25s ease;
 }
 
@@ -624,7 +666,6 @@ body.skill-open .techstack-section {
 .detail-card {
     overflow: hidden;
     padding: 0 55px 35px;
-
     border: 1px solid rgba(232, 111, 251, 0.25);
     border-radius: 20px;
 
@@ -645,12 +686,9 @@ body.skill-open .techstack-section {
     display: flex;
     align-items: center;
     gap: 9px;
-
     margin: 0 -55px 35px;
     padding: 14px 20px;
-
     border-bottom: 1px solid var(--line);
-
     color: #888;
     text-align: left;
     font-size: 0.72rem;
@@ -674,19 +712,13 @@ body.skill-open .techstack-section {
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 105px;
     height: 105px;
-
     margin: 0 auto 22px;
-
     border: 1px solid rgba(232, 111, 251, 0.25);
     border-radius: 25px;
-
     background: rgba(232, 111, 251, 0.09);
-
     font-size: 3.6rem;
-
     animation: icon-float 4s ease-in-out infinite;
 }
 
@@ -708,12 +740,9 @@ body.skill-open .techstack-section {
     display: inline-block;
     margin-bottom: 13px;
     padding: 6px 15px;
-
     border: 1px solid rgba(232, 111, 251, 0.2);
     border-radius: 30px;
-
     background: rgba(232, 111, 251, 0.08);
-
     color: var(--purple);
     font-size: 0.7rem;
     font-weight: 600;
@@ -746,17 +775,13 @@ body.skill-open .techstack-section {
     display: flex;
     justify-content: space-between;
     gap: 15px;
-
     margin-top: 45px;
     padding-top: 18px;
-
     border-top: 1px solid #39343d;
-
     color: #77717d;
     font-size: 0.65rem;
     letter-spacing: 1px;
 }
-
 
 /* =====================================
    TABLET
@@ -782,7 +807,6 @@ body.skill-open .techstack-section {
     }
 }
 
-
 /* =====================================
    MOBILE
 ===================================== */
@@ -806,31 +830,64 @@ body.skill-open .techstack-section {
         top: 0;
         right: 0;
         z-index: 1003;
-
         display: flex;
         width: min(78%, 340px);
         height: 100vh;
-
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 27px;
-
         background: rgba(15, 15, 15, 0.98);
         border-left: 1px solid rgba(232, 111, 251, 0.2);
         box-shadow: -15px 0 45px rgba(0, 0, 0, 0.4);
+        animation: mobile-nav-enter 0.35s ease both;
+    }
+
+    @keyframes mobile-nav-enter {
+        from {
+            opacity: 0;
+            transform: translateX(35px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
     }
 
     .mobile-nav a {
+        position: relative;
+        padding: 5px 0;
         color: #aaa;
         text-decoration: none;
         font-size: 1.05rem;
         font-weight: 600;
+        transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .mobile-nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        width: 100%;
+        height: 2px;
+        background: var(--purple);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease;
     }
 
     .mobile-nav a:hover,
     .mobile-nav a.active {
         color: var(--purple);
+        transform: translateX(4px);
+    }
+
+    .mobile-nav a:hover::after,
+    .mobile-nav a.active::after {
+        transform: scaleX(1);
+        transform-origin: left;
     }
 
     .container {
@@ -921,7 +978,6 @@ body.skill-open .techstack-section {
     }
 }
 
-
 /* =====================================
    SMALL MOBILE
 ===================================== */
@@ -971,12 +1027,16 @@ body.skill-open .techstack-section {
     }
 }
 
-
 /* =====================================
    ACCESSIBILITY
 ===================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
+    header,
+    .container {
+        animation: none !important;
+    }
 
     .typing-cursor,
     .detail-icon {
@@ -989,5 +1049,115 @@ body.skill-open .techstack-section {
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
     }
+}
+/* =================================
+   VISIBLE PAGE OPENING ANIMATIONS
+================================= */
 
+/* Header drops into place */
+header {
+    animation: headerDrop 0.9s ease-out both !important;
+}
+
+/* Main content starts hidden */
+#techstackMain .techstack-heading,
+#techstackMain #techstack-container,
+#techstackMain .techstack-instruction {
+    opacity: 0;
+}
+
+/* Heading appears first */
+#techstackMain .techstack-heading {
+    animation: contentReveal 0.9s ease-out 0.25s forwards !important;
+}
+
+/* Tech stack categories appear after the heading */
+#techstackMain .stack-category {
+    opacity: 0;
+    animation: categoryReveal 0.8s ease-out forwards !important;
+}
+
+#techstackMain .stack-category:nth-child(1) {
+    animation-delay: 0.65s !important;
+}
+
+#techstackMain .stack-category:nth-child(2) {
+    animation-delay: 0.9s !important;
+}
+
+#techstackMain .stack-category:nth-child(3) {
+    animation-delay: 1.15s !important;
+}
+
+#techstackMain .stack-category:nth-child(4) {
+    animation-delay: 1.4s !important;
+}
+
+#techstackMain .stack-category:nth-child(5) {
+    animation-delay: 1.65s !important;
+}
+
+/* Instruction appears last */
+#techstackMain .techstack-instruction {
+    animation: contentReveal 0.8s ease-out 1.9s forwards !important;
+}
+
+/* Animation keyframes */
+@keyframes headerDrop {
+    from {
+        opacity: 0;
+        transform: translateY(-35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes contentReveal {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes categoryReveal {
+    from {
+        opacity: 0;
+        transform: translateY(45px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Page closing animation */
+body.page-exit header,
+body.page-exit #techstackMain {
+    animation: pageClose 0.38s ease-in forwards !important;
+}
+
+@keyframes pageClose {
+    to {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+}
+
+/* Respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+    header,
+    #techstackMain .techstack-heading,
+    #techstackMain #techstack-container,
+    #techstackMain .stack-category,
+    #techstackMain .techstack-instruction {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
 }

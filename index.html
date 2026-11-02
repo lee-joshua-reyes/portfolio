@@ -1,40 +1,74 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <link rel="icon" type="image/x-icon" href="css, images, & js/images/eelogo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon" type="image/x-icon"
+    href="css, images, & js/images/eelogo.png">
+
   <title>Lee Reyes — Digital Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css, images, & js/CSS Files/index.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet"
+    href="css, images, & js/CSS Files/index.css" />
 </head>
+
 <body>
+
+  <div id="page-transition"></div>
   <div id="particles-js"></div>
 
-  <header>
-    <nav>
+  <header class="main-header">
+
+    <nav class="main-nav">
       <a href="about.html">About</a>
       <a href="techstack.html">Tech Stack</a>
       <a href="certification.html">Certifications</a>
       <a href="projects.html">Projects</a>
       <a href="contact.html">Contact</a>
     </nav>
+
     <a href="index.html" class="logo-link">
-      <img src="css, images, & js/images/picfolio.png" alt="Portrait of LJR" />
-      <h1>Hi, I'm Lee Reyes</h1>
+
+      <div class="profile-container">
+        <img
+          src="css, images, & js/images/picfolio.png"
+          alt="Portrait of Lee Reyes"
+          class="profile-picture"
+        />
+      </div>
+
+      <h1 class="typing-text">
+        <span id="typing-name"></span>
+      </h1>
+
     </a>
-    <h2>Aspiring IT Professional</h2>
-    <p>
-      A developer in progress and a lifelong learner, driven to turn creative ideas into meaningful digital experiences. 
+
+    <h2 class="subtitle">
+      Aspiring IT Professional
+    </h2>
+
+    <p class="description">
+      A developer in progress and a lifelong learner, driven to turn
+      creative ideas into meaningful digital experiences.
     </p>
+
   </header>
 
-  <footer>
-    <a href="https://github.com/lee-joshua-reyes">github</a>
+  <footer class="main-footer">
+    <a href="https://github.com/lee-joshua-reyes"
+      target="_blank"
+      rel="noopener noreferrer">github</a>
+
     <a href="email.html">email</a>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="css, images, & js/JS Files/index.js"></script>
+
 </body>
 </html>
