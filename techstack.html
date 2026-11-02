@@ -1,58 +1,134 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Tech Stack — LR</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <link rel="stylesheet" href="css, images, & js/CSS Files/techstack.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f0f0f">
+
+    <title>Technical Expertise — LR</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <link rel="stylesheet" href="css, images, & js/CSS Files/techstack.css">
 </head>
+
 <body>
 
-  <div id="particles-js"></div>
+    <div id="particles-js" aria-hidden="true"></div>
 
-  <header>
-    <a href="index.html" class="logo">LR.</a>
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav id="nav">
-      <a href="about.html">About</a>
-      <a href="techstack.html" class="active">Tech Stack</a>
-      <a href="certification.html">Certifications</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-      <a href="other.html">Other</a>
+    <header>
+        <a href="index.html" class="logo">LR<span>.</span></a>
+
+        <button class="hamburger" id="hamburger" type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="mobile-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="desktop-nav" aria-label="Main navigation">
+            <a href="about.html">About</a>
+            <a href="techstack.html" class="active">Tech Stack</a>
+            <a href="certification.html">Certifications</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+        <a href="about.html">About</a>
+        <a href="techstack.html" class="active">Tech Stack</a>
+        <a href="certification.html">Certifications</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
     </nav>
-  </header>
 
-  <nav id="mobile-nav" class="mobile-nav">
-    <a href="about.html">About</a>
-    <a href="techstack.html" class="active">Tech Stack</a>
-    <a href="certification.html">Certifications</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-    <a href="other.html">Other</a>
-  </nav>
+    <main class="container" id="techstackMain">
 
-  <div class="container">
-    <h2>My Tech Stack</h2>
-    <ul>
-      <li><i class="fab fa-cuttlefish fa-5x c-icon"></i><span class="text">C</span></li>
-      <li><i class="fab fa-cuttlefish fa-5x cpp-icon"></i><span class="text">C++</span></li>
-      <li><i class="fab fa-java fa-5x java-icon"></i><span class="text">Java</span></li>
-      <li><i class="fab fa-js-square fa-5x javascript-icon"></i><span class="text">JavaScript</span></li>
-      <li><i class="fab fa-git fa-5x git-icon"></i><span class="text">Git</span></li>
-      <li><i class="fab fa-github fa-5x github-icon"></i><span class="text">GitHub</span></li>
-      <li><i class="fab fa-html5 fa-5x html-icon"></i><span class="text">HTML</span></li>
-      <li><i class="fab fa-css3-alt fa-5x css-icon"></i><span class="text">CSS</span></li>
-    </ul>
-  </div>
+        <section class="techstack-section">
 
-  <script src="css, images, & js/JS Files/techstack.js"></script>
+            <div class="techstack-heading">
+
+                <span class="section-label">
+                    <span class="label-dot"></span>
+                    EXPLORE MY SKILLS
+                </span>
+
+                <h1 class="main-title">
+                    Technical <span>Expertise</span>
+                </h1>
+
+                <div class="title-accent"></div>
+
+                <p class="heading-description">
+                    A growing collection of technologies, programming
+                    languages, and development tools that I have explored
+                    and applied throughout my journey in Information Technology.
+                </p>
+
+            </div>
+
+            <div id="techstack-container" aria-label="Technology categories"></div>
+
+            <div class="techstack-instruction">
+                <i class="fas fa-arrow-pointer" aria-hidden="true"></i>
+                <span>Click any technology to explore what I've learned.</span>
+            </div>
+
+        </section>
+
+        <section class="skill-detail-view"
+            id="skillDetail"
+            aria-hidden="true"
+            aria-labelledby="detailTitle">
+
+            <div class="detail-content">
+
+                <button class="back-button" id="backButton" type="button">
+                    <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                    Back to Tech Stack
+                </button>
+
+                <div class="detail-card">
+
+                    <div class="detail-card-top">
+                        <span class="detail-file-dot"></span>
+                        <span>skill-details.js</span>
+                        <span class="detail-status">VIEWING SKILL</span>
+                    </div>
+
+                    <div class="detail-icon" id="detailIcon"></div>
+
+                    <span class="detail-label" id="detailCategory"></span>
+
+                    <h2 id="detailTitle"></h2>
+
+                    <div class="detail-divider"></div>
+
+                    <p id="detailDescription"></p>
+
+                    <div class="detail-bottom">
+                        <span>LEE JOSHUA REYES</span>
+                        <span>MY TECHNOLOGY JOURNEY</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="css, images, & js/JS Files/techstack.js"></script>
+
 </body>
 </html>

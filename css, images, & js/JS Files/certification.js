@@ -1,99 +1,135 @@
+// OPEN CERTIFICATE MODAL
 function openModal(imageSrc) {
   const modal = document.getElementById('certModal');
   const modalImage = document.getElementById('modalImage');
-  modal.classList.add('active');
+
   modalImage.src = imageSrc;
+  modal.classList.add('active');
+
+  document.body.style.overflow = 'hidden';
 }
 
+// CLOSE CERTIFICATE MODAL
 function closeModal() {
   const modal = document.getElementById('certModal');
+  const modalImage = document.getElementById('modalImage');
+
   modal.classList.remove('active');
+  document.body.style.overflow = '';
+  modalImage.src = '';
 }
 
-// Toggle mobile navigation
+// CLOSE MODAL USING ESCAPE KEY
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closeModal();
+  }
+});
+
+// MOBILE NAVIGATION
 function toggleNav() {
-  const mobileNav = document.getElementById('mobile-nav');
-  mobileNav.classList.toggle('active');
+  document.getElementById('mobile-nav').classList.toggle('active');
 }
 
-// Initialize particles.js
+document.querySelectorAll('#mobile-nav a').forEach(link => {
+  link.addEventListener('click', function() {
+    document.getElementById('mobile-nav').classList.remove('active');
+  });
+});
+
+// PARTICLES BACKGROUND
 particlesJS('particles-js', {
-  "particles": {
-    "number": {
-      "value": 80,
-      "density": {
-        "enable": true,
-        "value_area": 800
+  particles: {
+    number: {
+      value: 80,
+      density: {
+        enable: true,
+        value_area: 800
       }
     },
-    "color": {
-      "value": "#e86ffb"
+
+    color: {
+      value: '#e86ffb'
     },
-    "shape": {
-      "type": "circle",
-      "stroke": {
-        "width": 0,
-        "color": "#000000"
-      },
-      "polygon": {
-        "nb_sides": 5
+
+    shape: {
+      type: 'circle'
+    },
+
+    opacity: {
+      value: 0.5,
+      random: false,
+      anim: {
+        enable: true,
+        speed: 1,
+        opacity_min: 0.1,
+        sync: false
       }
     },
-    "opacity": {
-      "value": 0.5,
-      "random": false,
-      "anim": {
-        "enable": true,
-        "speed": 1,
-        "opacity_min": 0.1,
-        "sync": false
+
+    size: {
+      value: 3,
+      random: true,
+      anim: {
+        enable: true,
+        speed: 40,
+        size_min: 0.1,
+        sync: false
       }
     },
-    "size": {
-      "value": 3,
-      "random": true,
-      "anim": {
-        "enable": true,
-        "speed": 40,
-        "size_min": 0.1,
-        "sync": false
-      }
+
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: '#ffffff',
+      opacity: 0.4,
+      width: 1
     },
-    "line_linked": {
-      "enable": true,
-      "distance": 150,
-      "color": "#ffffff",
-      "opacity": 0.4,
-      "width": 1
-    },
-    "move": {
-      "enable": true,
-      "speed": 6,
-      "direction": "none",
-      "random": false,
-      "straight": false,
-      "out_mode": "out",
-      "bounce": false,
-      "attract": {
-        "enable": false,
-        "rotateX": 600,
-        "rotateY": 1200
+
+    move: {
+      enable: true,
+      speed: 6,
+      direction: 'none',
+      random: false,
+      straight: false,
+      out_mode: 'out',
+      bounce: false,
+      attract: {
+        enable: false,
+        rotateX: 600,
+        rotateY: 1200
       }
     }
   },
-  "interactivity": {
-    "detect_on": "window",
-    "events": {
-      "onhover": {
-        "enable": true,
-        "mode": "repulse"
+
+  interactivity: {
+    detect_on: 'window',
+
+    events: {
+      onhover: {
+        enable: true,
+        mode: 'repulse'
       },
-      "onclick": {
-        "enable": true,
-        "mode": "push"
+
+      onclick: {
+        enable: true,
+        mode: 'push'
       },
-      "resize": true
+
+      resize: true
+    },
+
+    modes: {
+      repulse: {
+        distance: 100,
+        duration: 0.4
+      },
+
+      push: {
+        particles_nb: 4
+      }
     }
   },
-  "retina_detect": true
+
+  retina_detect: true
 });
