@@ -381,6 +381,7 @@ body.skill-open .techstack-section {
     flex-wrap: nowrap;
     width: max-content;
     gap: 0;
+
     animation: skills-marquee-left 28s linear infinite;
     animation-play-state: running;
     will-change: transform;
@@ -421,13 +422,15 @@ body.skill-open .techstack-section {
 
 .skill-set {
     display: flex;
-    flex: 0 0 100vw;
+    flex: 0 0 auto;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
     gap: 20px;
-    width: 100vw;
-    min-width: 100vw;
-    padding: 12px 35px;
+
+    width: max-content;
+    min-width: max-content;
+
+    padding: 12px 20px;
 }
 
 /* =====================================
@@ -922,12 +925,34 @@ body.skill-open .techstack-section {
         font-size: 0.9rem;
     }
 
+    /* MOBILE SLIDING FIX */
+
+    .skill-track {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .skill-track-inner {
+        width: max-content;
+        flex-wrap: nowrap;
+        animation-duration: 30s;
+    }
+
+    .skill-track.reverse .skill-track-inner {
+        animation-duration: 30s;
+    }
+
     .skill-set {
+        flex: 0 0 auto;
+        width: max-content;
+        min-width: max-content;
+        justify-content: flex-start;
         gap: 15px;
-        padding: 12px 20px;
+        padding: 12px 15px;
     }
 
     .skill-pill {
+        flex: 0 0 auto;
         min-width: 180px;
         min-height: 85px;
         padding: 16px 20px;
@@ -1050,16 +1075,19 @@ body.skill-open .techstack-section {
         transition-duration: 0.01ms !important;
     }
 }
+
 /* =================================
    VISIBLE PAGE OPENING ANIMATIONS
 ================================= */
 
 /* Header drops into place */
+
 header {
     animation: headerDrop 0.9s ease-out both !important;
 }
 
 /* Main content starts hidden */
+
 #techstackMain .techstack-heading,
 #techstackMain #techstack-container,
 #techstackMain .techstack-instruction {
@@ -1067,11 +1095,13 @@ header {
 }
 
 /* Heading appears first */
+
 #techstackMain .techstack-heading {
     animation: contentReveal 0.9s ease-out 0.25s forwards !important;
 }
 
 /* Tech stack categories appear after the heading */
+
 #techstackMain .stack-category {
     opacity: 0;
     animation: categoryReveal 0.8s ease-out forwards !important;
@@ -1098,16 +1128,19 @@ header {
 }
 
 /* Instruction appears last */
+
 #techstackMain .techstack-instruction {
     animation: contentReveal 0.8s ease-out 1.9s forwards !important;
 }
 
 /* Animation keyframes */
+
 @keyframes headerDrop {
     from {
         opacity: 0;
         transform: translateY(-35px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1119,6 +1152,7 @@ header {
         opacity: 0;
         transform: translateY(35px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1130,6 +1164,7 @@ header {
         opacity: 0;
         transform: translateY(45px) scale(0.97);
     }
+
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -1137,6 +1172,7 @@ header {
 }
 
 /* Page closing animation */
+
 body.page-exit header,
 body.page-exit #techstackMain {
     animation: pageClose 0.38s ease-in forwards !important;
@@ -1150,7 +1186,9 @@ body.page-exit #techstackMain {
 }
 
 /* Respect reduced-motion settings */
+
 @media (prefers-reduced-motion: reduce) {
+
     header,
     #techstackMain .techstack-heading,
     #techstackMain #techstack-container,

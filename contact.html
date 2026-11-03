@@ -1,34 +1,49 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f0f0f">
 
   <link rel="icon" type="image/x-icon"
     href="css, images, & js/images/eelogo.png">
 
-  <title>Contact — LR</title>
+  <title>Contact Me — LR</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css, images, & js/CSS Files/contact.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <link rel="stylesheet"
+    href="css, images, & js/CSS Files/contact.css">
 </head>
 
 <body>
 
   <div id="particles-js"></div>
 
-  <header>
-    <a href="index.html">
-      <div class="logo">LR.</div>
-    </a>
-
-    <div class="hamburger" id="hamburger" onclick="toggleNav()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
+  <header class="site-header">
     <nav class="desktop-nav">
+      <a href="about.html">About</a>
+      <a href="techstack.html">Tech Stack</a>
+      <a href="certification.html">Certifications</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <button class="hamburger" id="hamburger"
+      aria-label="Open navigation menu"
+      aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="mobile-nav" id="mobile-nav">
       <a href="about.html">About</a>
       <a href="techstack.html">Tech Stack</a>
       <a href="certification.html">Certifications</a>
@@ -37,23 +52,86 @@
     </nav>
   </header>
 
-  <nav id="mobile-nav" class="mobile-nav">
-    <a href="about.html">About</a>
-    <a href="techstack.html">Tech Stack</a>
-    <a href="certification.html">Certifications</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html" class="active">Contact</a>
-  </nav>
+  <main class="contact-page">
+    <section class="contact-container">
 
-  <div class="container">
-    <h2>Contact Me</h2>
+      <div class="contact-heading">
+        <span class="heading-line"></span>
+        <h1>Contact <span>Me.</span></h1>
+        <p>Let's connect and get in touch.</p>
+      </div>
 
-    <p>If you'd like to connect, collaborate, or just say hello, feel free to reach me out!</p><br>
+      <div class="contact-content">
 
-    <p class="email">
-      <a href="email.html">Email: reyesleejoshua29@gmail.com</a>
-    </p>
-  </div>
+        <!-- LINKEDIN PREVIEW: ENTIRE CONTAINER CLICKABLE -->
+        <a class="linkedin-preview"
+          href="https://www.linkedin.com/in/leejoshuareyes"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Lee Joshua Reyes on LinkedIn">
+
+          <div class="linkedin-icon">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </div>
+
+          <div class="linkedin-details">
+            <span class="preview-label">LINKEDIN PROFILE</span>
+            <h2>Lee Joshua Reyes</h2>
+            <p>Aspiring IT Professional</p>
+          </div>
+
+          <div class="linkedin-view">
+            <span>View Profile</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </div>
+
+        </a>
+
+        <!-- EMAIL CONTAINER -->
+        <a class="email-container" href="email.html">
+
+          <div class="contact-icon">
+            <i class="fa-regular fa-envelope"></i>
+          </div>
+
+          <div class="email-details">
+            <span class="contact-label">EMAIL</span>
+            <h2>Send Me an Email</h2>
+            <p>reyesleejoshua29@gmail.com</p>
+          </div>
+
+          <div class="email-arrow">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </div>
+
+        </a>
+
+        <!-- PHONE CONTAINER -->
+        <div class="phone-container">
+
+          <div class="contact-icon">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+
+          <div class="phone-details">
+            <span class="contact-label">CONTACT NUMBER</span>
+            <h2>Phone</h2>
+            <a href="tel:+639771915826">+63 977 191 5826</a>
+          </div>
+
+          <button class="copy-button"
+            type="button"
+            data-copy="+63 977 191 5826"
+            aria-label="Copy contact number">
+            <i class="fa-regular fa-copy"></i>
+            <span>Copy</span>
+          </button>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="css, images, & js/JS Files/contact.js"></script>
